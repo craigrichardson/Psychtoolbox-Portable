@@ -1,10 +1,10 @@
 % run_my_experiment.m
-% v1.1 - 16/1/2020
+% v1.2 - 24/2/2020
 % Craig Richardson - craig.richardson@mq.edu.au
 %
 %%%
-% Now includes option to have macOS pathdef.m creation
-%%
+% Now detects OS and contructs pathdef accordingly.
+%%%
 %
 % Psychtoolbox does not have to be "installed" according to the default instructions at http://psychtoolbox.org/
 % The default instructions make some significant assumptions about the type of installation and requiment of administrative privledges, neither of which are required on a properly configured system.
@@ -26,12 +26,15 @@
 %
 % ------------------------------------------------------------------------------
 % Create the path to the current users pathdef.m
-% Windows
-% array = [getenv('USERPROFILE'),"\Documents\MATLAB\pathdef.m"];
-% macOS
-array = ["/Users/",getenv('USER'),"/Documents/MATLAB/pathdef.m"];
-% Test saving to this path.  If the file does not already exist it is created.
-savepath(join(array, ""));
+if ismac
+    runmypath = ["/Users/",getenv('USER'),"/Documents/MATLAB/pathdef.m"];
+elseif isunix
+    disp('Linux not currently supported');
+elseif ispc
+    runmypath = [getenv('USERPROFILE'),"\Documents\MATLAB\pathdef.m"];
+else
+    disp('Platform not supported')
+end
 
 % Run SetupPsychtoolbox to configure Psychtoolbox.
 % If there is already a configured Psychtoolbox on this system you will be prompted to List and then Remove the path entries for it before SetupPsychtoolbox will continue.
