@@ -36,6 +36,9 @@ else
     disp('Platform not supported')
 end
 
+% Test saving to this path.  If the pathdef.m does not already exist it is created.
+savepath(join(runmypath, ""));
+
 % Run SetupPsychtoolbox to configure Psychtoolbox.
 % If there is already a configured Psychtoolbox on this system you will be prompted to List and then Remove the path entries for it before SetupPsychtoolbox will continue.
 % Enter Yes twice or press Enter twice if prompted.
