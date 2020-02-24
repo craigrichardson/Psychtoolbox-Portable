@@ -1,6 +1,10 @@
 % run_my_experiment.m
-% v1.0 - 3/8/2018
+% v1.1 - 16/1/2020
 % Craig Richardson - craig.richardson@mq.edu.au
+%
+%%%
+% Now includes option to have macOS pathdef.m creation
+%%
 %
 % Psychtoolbox does not have to be "installed" according to the default instructions at http://psychtoolbox.org/
 % The default instructions make some significant assumptions about the type of installation and requiment of administrative privledges, neither of which are required on a properly configured system.
@@ -22,9 +26,10 @@
 %
 % ------------------------------------------------------------------------------
 % Create the path to the current users pathdef.m
-% This is for Windows only, would need to test for macOS and simply provide '~/Documents/MATLAB/pathdef.m'
-array = [getenv('USERPROFILE'),"\Documents\MATLAB\pathdef.m"];
-
+% Windows
+% array = [getenv('USERPROFILE'),"\Documents\MATLAB\pathdef.m"];
+% macOS
+array = ["/Users/",getenv('USER'),"/Documents/MATLAB/pathdef.m"];
 % Test saving to this path.  If the file does not already exist it is created.
 savepath(join(array, ""));
 
@@ -35,5 +40,5 @@ cd Psychtoolbox
 SetupPsychtoolbox
 cd ..
 
-% Insert the name of your experiment to run below
-my_experiment
+% Replace PsychtoolboxVersion with the name of your experiment.
+PsychtoolboxVersion
