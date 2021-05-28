@@ -1,9 +1,11 @@
 % run_my_experiment.m
-% v1.2 - 24/2/2020
+% v1.3 - 28/5/2021
 % Craig Richardson - craig.richardson@mq.edu.au
 %
 %%%
-% Now detects OS and contructs pathdef accordingly.
+% 1.3 - Added placeholder for adding paths specific to the experiment.
+%%%
+% 1.2 - Now detects between macOS/Windows and contructs path to pathdef.m accordingly.
 %%%
 %
 % Psychtoolbox does not have to be "installed" according to the default instructions at http://psychtoolbox.org/
@@ -45,6 +47,9 @@ savepath(join(runmypath, ""));
 cd Psychtoolbox
 SetupPsychtoolbox
 cd ..
+
+% Add any directories to your path that are required for your experiment, uncommend and add as many as you need.
+% addpath('my_experiment_resources')
 
 % Replace PsychtoolboxVersion with the name of your experiment.
 PsychtoolboxVersion
