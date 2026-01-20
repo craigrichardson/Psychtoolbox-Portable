@@ -1,7 +1,10 @@
 % run_my_experiment.m
-% v1.3 - 28/5/2021
+% v1.4 - 20/1/2026
 % Craig Richardson - craig.richardson@mq.edu.au
 %
+%%%
+% 1.4 - Added placeholder files & folders mentioned in instructions as a templete to guide new users in setting up a new experiment.
+%		Check for users present working directory before changing into the Psychtoolbox directory, after running SetupPsychtoolbox return user to their previous directory.
 %%%
 % 1.3 - Added placeholder for adding paths specific to the experiment.
 %%%
@@ -44,12 +47,16 @@ savepath(join(runmypath, ""));
 % Run SetupPsychtoolbox to configure Psychtoolbox.
 % If there is already a configured Psychtoolbox on this system you will be prompted to List and then Remove the path entries for it before SetupPsychtoolbox will continue.
 % Enter Yes twice or press Enter twice if prompted.
+startdir = pwd;
 cd Psychtoolbox
 SetupPsychtoolbox
-cd ..
+cd (startdir)
 
-% Add any directories to your path that are required for your experiment, uncommend and add as many as you need.
-% addpath('my_experiment_resources')
+% Add any directories to your path that are required for your experiment, uncomment and add as many as you need.
+addpath('my_experiment_resources')
 
-% Replace PsychtoolboxVersion with the name of your experiment.
+% Display the current version of Psychtoolbox that was setup just for your experiment to run.
 PsychtoolboxVersion
+
+% Replace the following with the name of your experiment script.  Running my_experiment.m will just invoke one of the PTB Demos.
+my_experiment.m
