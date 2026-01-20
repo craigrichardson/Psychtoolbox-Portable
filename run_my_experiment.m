@@ -46,7 +46,7 @@ savepath(join(runmypath, ""));
 
 % Run SetupPsychtoolbox to configure Psychtoolbox.
 % If there is already a configured Psychtoolbox on this system you will be prompted to List and then Remove the path entries for it before SetupPsychtoolbox will continue.
-% Enter Yes twice or press Enter twice if prompted.
+% Enter Yes twice to remove the path entries for a previous setup of Psychtoolbox
 startdir = pwd;
 cd Psychtoolbox
 SetupPsychtoolbox
@@ -58,5 +58,5 @@ addpath('my_experiment_resources')
 % Display the current version of Psychtoolbox that was setup just for your experiment to run.
 PsychtoolboxVersion
 
-% Replace the following with the name of your experiment script.  Running my_experiment.m will just invoke one of the PTB Demos.
-my_experiment.m
+% Replace the following with the name of your experiment script.  Running the default my_experiment will just invoke one of the PTB Demos.
+my_experiment
